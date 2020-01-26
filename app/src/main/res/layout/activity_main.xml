@@ -4,55 +4,165 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    tools:context=".MainActivity">
+    android:padding="20dp">
 
 
-    <ImageView
-        android:id="@+id/logo_im"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher_foreground"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:ignore="MissingConstraints"/>
-
-    <TextView
-        android:id="@+id/user_login_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="left"
-        android:text="@string/user"
-        android:textSize="50px"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_im"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/user_login_edit"
+    <LinearLayout
+        android:id="@+id/layout_liner"
         android:layout_width="match_parent"
-        android:layout_height="100px"
-        android:hint="@string/user"
-        android:textSize="50px"
-        app:layout_constraintTop_toBottomOf="@+id/user_login_text"
-        android:autofillHints="" tools:targetApi="o"
-        android:inputType="TODO" />
-
-    <TextView
-        android:id="@+id/password_test"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password"
-        android:textSize="50px"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/user_login_edit"
-        tools:ignore="MissingConstraints" />
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="100px"
-        app:layout_constraintTop_toBottomOf="@id/password_test"
-        tools:ignore="MissingConstraints" />
+        <ImageView
+            android:id="@+id/logo_im"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_launcher_foreground"
+            />
 
+        <TextView
+            android:id="@+id/user_login_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/user"
+            android:textSize="50px"
+            android:textStyle="bold"
+            />
+
+        <EditText
+            android:id="@+id/user_login_edit"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:hint="@string/user"
+            android:textSize="50px"
+            android:inputType="text"
+            />
+
+        <TextView
+            android:id="@+id/password_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textSize="50px"
+            android:textStyle="bold"
+            />
+
+        <EditText
+            android:id="@+id/password_edit"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            />
+
+        <TextView
+            android:id="@+id/frogetpassword_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ForgetPassword"
+            android:textStyle="italic"
+            android:layout_gravity="right"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints"
+            >
+
+            <Button
+                android:id="@+id/login_bt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="Login"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="Regiset"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <!--    <ImageView-->
+<!--        android:id="@+id/logo_im"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/ic_launcher_foreground"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        tools:ignore="MissingConstraints"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/user_login_text"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="left"-->
+<!--        android:text="@string/user"-->
+<!--        android:textSize="50px"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/logo_im"-->
+<!--        tools:ignore="MissingConstraints" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/user_login_edit"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="100px"-->
+<!--        android:hint="@string/user"-->
+<!--        android:textSize="50px"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/user_login_text"-->
+<!--        android:inputType="text"-->
+<!--        />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/password_test"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Password"-->
+<!--        android:textSize="50px"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/user_login_edit"-->
+<!--        tools:ignore="MissingConstraints" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/password_edit"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="100px"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/password_test"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        android:inputType="textPassword"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/frogetpassword_button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="ForgetPassword"-->
+<!--        android:textStyle="italic"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/password_edit"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"/>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/login_bt"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/frogetpassword_button"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        />-->
+
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/frogetpassword_button"-->
+<!--        app:layout_constraintRight_toRightOf="parent"/>-->
 </androidx.constraintlayout.widget.ConstraintLayout>
