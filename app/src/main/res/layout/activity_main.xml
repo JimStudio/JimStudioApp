@@ -84,11 +84,12 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/regisetr_bt"
+                android:id="@+id/registered_bt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
-                android:text="Regiset"/>
+                android:textStyle="bold"
+                android:text="Registered"/>
         </LinearLayout>
     </LinearLayout>
 
