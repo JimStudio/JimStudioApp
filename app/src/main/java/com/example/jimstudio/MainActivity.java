@@ -2,9 +2,9 @@ package com.example.jimstudio;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +16,10 @@ public class MainActivity extends AppCompatActivity {
     EditText password;
     Button Login;
     Button Registered ;
-    int counter = 5;
+    private int counter = 5;
+    Handler handler = new Handler();
+    Intent Layout;
+    private float time = 5000;
 
 
     @Override
@@ -30,16 +33,15 @@ public class MainActivity extends AppCompatActivity {
                 if (user_name.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
                     Toast.makeText(getApplicationContext(), "Hello" , Toast.LENGTH_SHORT).show();
                 }else if (counter == 0){
-                         int time = 3000;
+
                         //锁死按钮
                         Login.setEnabled(false);
-                        Toast.makeText(getApplicationContext(), "Please wait 30 minutes and try again." , Toast.LENGTH_SHORT).show();
-                        Handler handler = new Handler();
+                        Toast.makeText(getApplicationContext(), "Please wait 50 minutes and try again." , Toast.LENGTH_SHORT).show();
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 Login.setEnabled(true);
-                            }}, time);
+                            }}, (long) time);
                     }else{
                         Toast.makeText(getApplicationContext(), "Wrong Credentials，Remain:" + counter--, Toast.LENGTH_SHORT).show();
                     }
@@ -49,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         Registered.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Layout = new Intent(MainActivity.this , RegisteredActivity.class);
+                startActivity(Layout);
             }
         });
     }
