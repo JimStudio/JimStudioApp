@@ -32,14 +32,19 @@
             android:gravity="center"
             android:text="@string/user"
             android:textSize="50px"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/user"
             android:textSize="50px"
-            android:inputType="text"
+            android:inputType="textVisiblePassword|textNoSuggestions"
+            android:digits="0123456789abcdefghijklmnopqrstuvwxyzQWERTYUIOPASDFGHJKLZXCVBNM"
+            android:singleLine="true"
+            android:imeOptions="actionNext"
+            android:maxLength="16"
             />
 
         <TextView
@@ -51,11 +56,13 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/re_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="password"
             android:textSize="50px"
-            android:inputType="text"
+            android:inputType="textPassword"
+            android:maxLength="16"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -70,7 +77,8 @@
             android:layout_height="wrap_content"
             android:hint="Confirm Password"
             android:textSize="50px"
-            android:inputType="text"
+            android:inputType="textPassword"
+            android:maxLength="16"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -85,7 +93,7 @@
             android:layout_height="wrap_content"
             android:hint="Email"
             android:textSize="50px"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             />
 
         <Button
