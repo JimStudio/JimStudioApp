@@ -12,10 +12,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText user_name;
-    EditText password;
-    Button Login;
-    Button Registered ;
+    EditText user_name , password;
+    Button Login , Registered ;
     private int counter = 5;
     Handler handler = new Handler();
     Intent Layout;
