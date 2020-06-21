@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class RegisteredActivity extends AppCompatActivity {
 
@@ -21,9 +23,21 @@ public class RegisteredActivity extends AppCompatActivity {
         iten();
         password.setHint("Password");
         confrompassword.setHint("Conform Password");
-        if (password.equals(confrompassword)){
-            confrompassword.setError("Goodd");
-        }
+
+
+        bt_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String pas = password.getText().toString();
+                final String compass = confrompassword.getText().toString();
+                if (pas.equals(compass)){
+                    Toast.makeText(getApplicationContext() , "Pass" , Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "No Pass" , Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
     public void iten(){
