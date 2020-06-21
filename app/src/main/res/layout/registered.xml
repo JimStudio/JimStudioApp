@@ -54,32 +54,46 @@
             android:text="password"
             android:textSize="50px"
             android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/re_username"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_height="wrap_content"
-            android:hint="password"
-            android:textSize="50px"
-            android:inputType="textPassword"
-            android:maxLength="16"
-            />
+            android:layout_width="match_parent"
+            app:endIconMode="password_toggle"
+            >
+
+            <EditText
+                android:id="@+id/re_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="50px"
+                android:inputType="textPassword"
+                android:maxLength="16"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Confirm Password"
+            android:text="Conform Password"
             android:textSize="50px"
             android:textStyle="bold" />
-
-        <EditText
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_height="wrap_content"
-            android:hint="Confirm Password"
-            android:textSize="50px"
-            android:inputType="textPassword"
-            android:maxLength="16"
-            />
+            android:layout_width="match_parent"
+            app:endIconMode="password_toggle"
+            >
+
+            <EditText
+                android:id="@+id/re_confirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="50px"
+                android:inputType="textPassword"
+                android:maxLength="16"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -89,6 +103,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/re_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
@@ -97,6 +112,7 @@
             />
 
         <Button
+            android:id="@+id/re_bt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Registered"/>

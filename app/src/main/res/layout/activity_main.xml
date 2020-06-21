@@ -54,13 +54,33 @@
             android:textStyle="bold"
             />
 
-        <EditText
-            android:id="@+id/password_edit"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword"
-            />
+            android:layout_width="match_parent"
+            app:endIconMode="password_toggle"
+            >
+
+                    <EditText
+                        android:id="@+id/password_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        />
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                  android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:inputType="textPassword"-->
+<!--                android:id="@+id/password_edit"-->
+<!--                />-->
+
+        </com.google.android.material.textfield.TextInputLayout>
+<!--        <EditText-->
+<!--            android:id="@+id/password_edit"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Password"-->
+<!--            android:inputType="textPassword"-->
+<!--            />-->
 
         <TextView
             android:id="@+id/frogetpassword_button"

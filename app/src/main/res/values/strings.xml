@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">JimStudio</string>
     <string name="user">User</string>
+    <string name="title_activity_home">Home</string>
 </resources>
