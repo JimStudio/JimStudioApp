@@ -34,27 +34,38 @@
             android:textSize="50px"
             android:textStyle="bold"
             />
-
-        <EditText
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/re_text_user"
             android:layout_height="wrap_content"
-            android:hint="@string/user"
-            android:textSize="50px"
-            android:inputType="textVisiblePassword|textNoSuggestions"
-            android:digits="0123456789abcdefghijklmnopqrstuvwxyzQWERTYUIOPASDFGHJKLZXCVBNM"
-            android:singleLine="true"
-            android:imeOptions="actionNext"
-            android:maxLength="16"
-            />
+            android:layout_width="match_parent"
+            >
+
+
+            <EditText
+                android:id="@+id/re_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789abcdefghijklmnopqrstuvwxyzQWERTYUIOPASDFGHJKLZXCVBNM"
+                android:imeOptions="actionNext"
+                android:inputType="textVisiblePassword|textNoSuggestions"
+                android:maxLength="16"
+                android:singleLine="true"
+                android:textSize="50px" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="password"
+            android:text="@string/password"
             android:textSize="50px"
             android:textStyle="bold" />
+
+
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/re_text_password"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             app:endIconMode="password_toggle"
@@ -75,10 +86,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Conform Password"
+            android:text="@string/comfrom_password"
             android:textSize="50px"
             android:textStyle="bold" />
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/re_test_password_comform"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             app:endIconMode="password_toggle"
@@ -98,23 +110,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Email"
+            android:text="@string/email"
             android:textSize="50px"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/re_email"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/re_test_email"
             android:layout_height="wrap_content"
-            android:hint="Email"
-            android:textSize="50px"
-            android:inputType="textEmailAddress"
-            />
+            android:layout_width="match_parent"
+            >
+
+            <EditText
+                android:id="@+id/re_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="50px"
+                android:inputType="textEmailAddress"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/re_bt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registered"/>
+            android:text="@string/registered"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

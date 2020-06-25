@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">JimStudio</string>
-    <string name="user">User</string>
+    <string name="user">User Name</string>
     <string name="title_activity_home">Home</string>
+    <string name="password">Password</string>
+    <string name="comfrom_password">Conform Password</string>
+    <string name="email">Email</string>
+    <string name="registered">Registered</string>
+
+    <!---  Error Msg   -->
+    <string name="long_error">Please enter 8-16 characters</string>
 </resources>
