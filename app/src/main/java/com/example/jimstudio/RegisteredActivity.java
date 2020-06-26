@@ -8,6 +8,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -68,7 +70,7 @@ public class RegisteredActivity extends AppCompatActivity {
         String username_validate = username.getText().toString().trim();
         if (username_validate.length() < 8 || username_validate.length() > 17){
             username.setError(getString(R.string.long_error));
-
+            requestFocus(username);
             return false;
         }else{
             username_text.setErrorEnabled(false);
@@ -76,6 +78,12 @@ public class RegisteredActivity extends AppCompatActivity {
         return true;
     }
 
+    private void requestFocus(View view) {
+        if (view.requestFocus()) {
+            Log.d("My" , "ok");
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
+    }
     private class RegisterdTextWatcher implements TextWatcher {
 
         private View view;
@@ -97,7 +105,7 @@ public class RegisteredActivity extends AppCompatActivity {
             switch (view.getId()){
 
                 case R.id.re_user:
-                    Log.d("Hallo" , "ok");
+
                     validateName();
                     break;
             }
