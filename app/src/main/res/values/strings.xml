@@ -9,5 +9,6 @@
 
     <!---  Error Msg   -->
     <string name="long_error">Please enter 8-16 characters</string>
-    <string name="different_password">Different password</string>
+    <string name="err_different_password">Different password</string>
+    <string name="err_msg_email">Enter valid email address</string>
 </resources>

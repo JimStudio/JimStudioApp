@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
     Button Login , Registered ;
     private int counter = 5;
     Handler handler = new Handler();
-    Intent Layout;
-    private float time = 5000;
+    Intent Layout , Home_Layout;
+    private float time = 3000;
 
 
     @Override
@@ -30,12 +30,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (user_name.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
-                    Toast.makeText(getApplicationContext(), "Hello" , Toast.LENGTH_SHORT).show();
+                    Home_Layout = new Intent(MainActivity.this , Home.class);
+                    startActivity(Home_Layout);
+                    finish();
                 }else if (counter == 0){
 
                         //锁死按钮
                         Login.setEnabled(false);
-                        Toast.makeText(getApplicationContext(), "Please wait 50 minutes and try again." , Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Please wait 30 minutes and try again." , Toast.LENGTH_SHORT).show();
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Layout = new Intent(MainActivity.this , RegisteredActivity.class);
                 startActivity(Layout);
+                finish();
             }
         });
     }

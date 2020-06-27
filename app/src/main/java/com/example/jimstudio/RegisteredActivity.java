@@ -2,9 +2,11 @@ package com.example.jimstudio;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.TestLooperManager;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -18,9 +20,11 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class RegisteredActivity extends AppCompatActivity {
 
-    EditText username , password , confrompassword , Email;
+    EditText username , password , confrompassword , email;
     TextInputLayout username_text , comfrom_password_text , password_test , email_test;
     Button bt_register;
+    Intent Main_Layout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,21 +35,21 @@ public class RegisteredActivity extends AppCompatActivity {
         username.addTextChangedListener(new RegisterdTextWatcher(username));
         password.addTextChangedListener(new RegisterdTextWatcher(password));
         confrompassword.addTextChangedListener(new RegisterdTextWatcher(confrompassword));
+        email.addTextChangedListener(new RegisterdTextWatcher(email));
 
 
-//        bt_register.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                final String pas = password.getText().toString();
-//                final String compass = confrompassword.getText().toString();
-//                if (pas.equals(compass)){
-//                    Toast.makeText(getApplicationContext() , "Pass" ,
-//                            Toast.LENGTH_SHORT).show();
-//                }else{
-//                    Toast.makeText(getApplicationContext(), "No Pass" , Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
+        bt_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!validateName() || !validatePassword() || !validateConfrompassword() || !validateEmail()){
+                    return;
+                }else{
+                    Main_Layout = new Intent(RegisteredActivity.this , MainActivity.class);
+                    startActivity(Main_Layout);
+                    finish();
+                }
+            }
+        });
 
     }
 
@@ -53,14 +57,14 @@ public class RegisteredActivity extends AppCompatActivity {
         username.setHint(R.string.user);
         password.setHint(R.string.password);
         confrompassword.setHint(R.string.comfrom_password);
-        Email.setHint(R.string.email);
+        email.setHint(R.string.email);
     }
 
     public void iten(){
        username = (EditText)findViewById(R.id.re_user);
         password = (EditText) findViewById(R.id.re_password);
         confrompassword = (EditText) findViewById(R.id.re_confirmPassword);
-        Email = (EditText) findViewById(R.id.re_email);
+        email = (EditText) findViewById(R.id.re_email);
         bt_register = (Button) findViewById(R.id.re_bt);
         username_text = (TextInputLayout) findViewById(R.id.re_text_user);
         password_test = (TextInputLayout) findViewById(R.id.re_text_password);
@@ -94,17 +98,26 @@ public class RegisteredActivity extends AppCompatActivity {
     }
 
     public boolean validateConfrompassword(){
-       final String pas = password.getText().toString().trim();
-        final String compass = confrompassword.getText().toString().trim();
+        String pas = password.getText().toString().trim();
+         String compass = confrompassword.getText().toString().trim();
 
         if (pas.equals(compass)){
-            Log.d("Mi" , "ok");
-            comfrom_password_text.setError(getString(R.string.different_password));
-            requestFocus(comfrom_password_text);
-            return false;
-        }else{
-
             comfrom_password_text.setErrorEnabled(false);
+            return true;
+        }else{
+            comfrom_password_text.setError(getString(R.string.err_different_password));
+            requestFocus(comfrom_password_text);
+
+        }
+        return false;
+    }
+    public boolean validateEmail(){
+        String validate_email = email.getText().toString().trim();
+        if (validate_email.isEmpty() || !isValidEmail(validate_email)){
+            email_test.setError(getString(R.string.err_msg_email));
+            requestFocus(email_test);
+        }else{
+            email_test.setErrorEnabled(false);
         }
         return true;
     }
@@ -114,6 +127,10 @@ public class RegisteredActivity extends AppCompatActivity {
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         }
     }
+    private static boolean isValidEmail(String email) {
+        return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
     private class RegisterdTextWatcher implements TextWatcher {
 
         private View view;
@@ -144,6 +161,10 @@ public class RegisteredActivity extends AppCompatActivity {
 
                 case R.id.re_confirmPassword:
                     validateConfrompassword();
+                    break;
+
+                case R.id.re_email:
+                    validateEmail();
                     break;
             }
         }
