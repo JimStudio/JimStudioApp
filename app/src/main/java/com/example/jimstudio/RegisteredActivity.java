@@ -19,7 +19,7 @@ import com.google.android.material.textfield.TextInputLayout;
 public class RegisteredActivity extends AppCompatActivity {
 
     EditText username , password , confrompassword , Email;
-    TextInputLayout username_text , comfrom_password_text , email_test;
+    TextInputLayout username_text , comfrom_password_text , password_test , email_test;
     Button bt_register;
 
     @Override
@@ -29,6 +29,8 @@ public class RegisteredActivity extends AppCompatActivity {
         iten();
         hint_test();
         username.addTextChangedListener(new RegisterdTextWatcher(username));
+        password.addTextChangedListener(new RegisterdTextWatcher(password));
+        confrompassword.addTextChangedListener(new RegisterdTextWatcher(confrompassword));
 
 
 //        bt_register.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +63,7 @@ public class RegisteredActivity extends AppCompatActivity {
         Email = (EditText) findViewById(R.id.re_email);
         bt_register = (Button) findViewById(R.id.re_bt);
         username_text = (TextInputLayout) findViewById(R.id.re_text_user);
+        password_test = (TextInputLayout) findViewById(R.id.re_text_password);
         comfrom_password_text = (TextInputLayout) findViewById(R.id.re_test_password_comform);
         email_test = (TextInputLayout) findViewById(R.id.re_test_email);
     }
@@ -69,7 +72,7 @@ public class RegisteredActivity extends AppCompatActivity {
 
         String username_validate = username.getText().toString().trim();
         if (username_validate.length() < 8 || username_validate.length() > 17){
-            username.setError(getString(R.string.long_error));
+            username_text.setError(getString(R.string.long_error));
             requestFocus(username);
             return false;
         }else{
@@ -78,9 +81,36 @@ public class RegisteredActivity extends AppCompatActivity {
         return true;
     }
 
+    public boolean validatePassword(){
+        String password_validate = password.getText().toString().trim();
+        if (password_validate.length() < 8 || password_validate.length() > 17){
+            password_test.setError(getString(R.string.long_error));
+            requestFocus(password_test);
+            return false;
+        }else{
+            password_test.setErrorEnabled(false);
+        }
+        return true;
+    }
+
+    public boolean validateConfrompassword(){
+       final String pas = password.getText().toString().trim();
+        final String compass = confrompassword.getText().toString().trim();
+
+        if (pas.equals(compass)){
+            Log.d("Mi" , "ok");
+            comfrom_password_text.setError(getString(R.string.different_password));
+            requestFocus(comfrom_password_text);
+            return false;
+        }else{
+
+            comfrom_password_text.setErrorEnabled(false);
+        }
+        return true;
+    }
+
     private void requestFocus(View view) {
         if (view.requestFocus()) {
-            Log.d("My" , "ok");
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         }
     }
@@ -105,8 +135,15 @@ public class RegisteredActivity extends AppCompatActivity {
             switch (view.getId()){
 
                 case R.id.re_user:
-
                     validateName();
+                    break;
+
+                case R.id.re_password:
+                    validatePassword();
+                    break;
+
+                case R.id.re_confirmPassword:
+                    validateConfrompassword();
                     break;
             }
         }
