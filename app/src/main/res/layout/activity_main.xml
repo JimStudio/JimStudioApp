@@ -37,7 +37,7 @@
             />
 
         <EditText
-            android:id="@+id/user_login_edit"
+            android:id="@+id/user_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/user"
@@ -82,14 +82,25 @@
 <!--            android:inputType="textPassword"-->
 <!--            />-->
 
-        <TextView
-            android:id="@+id/frogetpassword_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ForgetPassword"
-            android:textStyle="italic"
-            android:layout_gravity="right"
-            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/check_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="@string/remember_me"/>
+
+            <TextView
+                android:id="@+id/frogetpassword_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ForgetPassword"
+                android:layout_alignParentRight="true"
+                android:textStyle="italic" />
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

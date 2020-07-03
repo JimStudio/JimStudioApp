@@ -6,9 +6,11 @@
     <string name="comfrom_password">Conform Password</string>
     <string name="email">Email</string>
     <string name="registered">Registered</string>
+    <string name="remember_me">Remember Me</string>
 
     <!---  Error Msg   -->
     <string name="long_error">Please enter 8-16 characters</string>
     <string name="err_different_password">Different password</string>
     <string name="err_msg_email">Enter valid email address</string>
+
 </resources>
